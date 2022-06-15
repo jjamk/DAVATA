@@ -3,4 +3,15 @@
     <string name="title_home">Home</string>
     <string name="title_setting">Setting</string>
     <string name="title_calendar">Calendar</string>
+    <string name="title_food">Food</string>
+    <string name="_2022_6">2022년 6월</string>
+    <string name="Sun">일</string>
+    <string name="MOn">월</string>
+    <string name="Mon">월</string>
+    <string name="Tue">화</string>
+    <string name="Wed">수</string>
+    <string name="Thur">목</string>
+    <string name="Fri">금</string>
+    <string name="Sat">토</string>
+    <string name="_9">9</string>
 </resources>

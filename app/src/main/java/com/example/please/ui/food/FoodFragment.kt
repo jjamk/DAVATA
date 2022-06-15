@@ -1,4 +1,4 @@
-package com.example.please.ui.home
+package com.example.please.ui.food
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,24 +8,16 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.please.TargetActivity
-import com.bumptech.glide.Glide
-import com.example.please.R
-import com.example.please.databinding.FragmentHomeBinding
-import com.example.please.databinding.ActivityResisterBinding
+import com.example.please.databinding.FragmentFoodBinding
 import com.google.firebase.database.FirebaseDatabase
-import kotlinx.android.synthetic.main.activity_resister.*
-import kotlinx.android.synthetic.main.fragment_home.*
 
-class HomeFragment : Fragment() {
+class FoodFragment : Fragment() {
 
-    private var _binding: FragmentHomeBinding? = null
-    private var _binding2: ActivityResisterBinding?=null
+    private var _binding: FragmentFoodBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
-    //private val binding2 get() = _binding2!!
 
     val database: FirebaseDatabase = FirebaseDatabase.getInstance()
     //val name=binding2.edtName.text.toString()
@@ -35,29 +27,19 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        val foodViewModel =
+            ViewModelProvider(this).get(FoodViewModel::class.java)
+        _binding = FragmentFoodBinding.inflate(inflater, container, false)
 
         /*myRef.addValueEventListener(object :ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 //키랑,체중 가져와서 bmi계산 후 아래 glide코드로 female버전 다르게 해주기
             }
         })*/
-        Glide.with(this).load(R.raw.female1).into(binding.avatar)
         val root: View = binding.root
-
         return root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        val imageButton: ImageButton = binding.imageButton
-        imageButton.setOnClickListener {
-            val intent = Intent(context, TargetActivity::class.java)
-            startActivity(intent)
-        }
-    }
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
