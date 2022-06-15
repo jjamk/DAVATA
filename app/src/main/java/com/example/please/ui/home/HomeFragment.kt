@@ -14,15 +14,26 @@ import androidx.core.content.ContextCompat.startActivity
 import com.bumptech.glide.Glide
 import com.example.please.R
 import com.example.please.databinding.FragmentHomeBinding
+import com.example.please.databinding.ActivityResisterBinding
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+import kotlinx.android.synthetic.main.activity_resister.*
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
+    private var _binding2: ActivityResisterBinding?=null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+    private val binding2 get() = _binding2!!
+
+    val database: FirebaseDatabase = FirebaseDatabase.getInstance()
+    val name=binding2.edtName.text.toString()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -32,6 +43,13 @@ class HomeFragment : Fragment() {
         val homeViewModel =
             ViewModelProvider(this).get(HomeViewModel::class.java)
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
+
+        val myRef: DatabaseReference=database.getReference(name)
+        myRef.addValueEventListener(object :ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                //키랑,체중 가져와서 bmi계산 후 아래 glide코드로 female버전 다르게 해주기
+            }
+        })
         Glide.with(this).load(R.raw.female1).into(binding.avatar)
         val root: View = binding.root
 
