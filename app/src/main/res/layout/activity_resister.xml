@@ -53,7 +53,7 @@
             android:id="@+id/btn_sign_in"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="회원가입" />
+            android:text="아바타 생성" />
 
         <TextView
             android:id="@+id/txt_result"

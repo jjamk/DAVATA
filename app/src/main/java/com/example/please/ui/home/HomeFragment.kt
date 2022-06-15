@@ -30,10 +30,10 @@ class HomeFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
-    private val binding2 get() = _binding2!!
+    //private val binding2 get() = _binding2!!
 
     val database: FirebaseDatabase = FirebaseDatabase.getInstance()
-    val name=binding2.edtName.text.toString()
+    //val name=binding2.edtName.text.toString()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -44,12 +44,11 @@ class HomeFragment : Fragment() {
             ViewModelProvider(this).get(HomeViewModel::class.java)
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
 
-        val myRef: DatabaseReference=database.getReference(name)
-        myRef.addValueEventListener(object :ValueEventListener{
+        /*myRef.addValueEventListener(object :ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 //키랑,체중 가져와서 bmi계산 후 아래 glide코드로 female버전 다르게 해주기
             }
-        })
+        })*/
         Glide.with(this).load(R.raw.female1).into(binding.avatar)
         val root: View = binding.root
 
