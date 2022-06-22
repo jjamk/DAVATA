@@ -51,4 +51,5 @@ class TodoAdapter(private val todos:List<Todo>,
                 binding.checkBox.isChecked = todo.completed
             }
     }
+
 }

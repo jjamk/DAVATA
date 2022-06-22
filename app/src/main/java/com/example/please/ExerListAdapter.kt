@@ -12,19 +12,19 @@ import android.widget.Filterable
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class FoodListAdapter(var Food: ArrayList<FoodList>, var con: Context) :
-    RecyclerView.Adapter<FoodListAdapter.ViewHolder>(), Filterable {
-    var TAG = "FoodListAdapter"
+class ExerListAdapter(var Exer: ArrayList<ExerList>, var con: Context) :
+    RecyclerView.Adapter<ExerListAdapter.ViewHolder>(), Filterable {
+    var TAG = "ExerListAdapter"
 
-    var filteredFoods = ArrayList<FoodList>()
+    var filteredExers = ArrayList<ExerList>()
     var itemFilter = ItemFilter()
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var f_name: TextView
+        var e_name: TextView
         var choice: Button
 
         init {
-            f_name = itemView.findViewById(R.id.f_name)
+            e_name = itemView.findViewById(R.id.e_name)
             choice = itemView.findViewById(R.id.choice)
             choice.setOnClickListener {
                 //intent사용하여 text값 넘기고 칼로리 합쳐서 표시할 것
@@ -33,7 +33,7 @@ class FoodListAdapter(var Food: ArrayList<FoodList>, var con: Context) :
     }
 
     init {
-        filteredFoods.addAll(Food)
+        filteredExers.addAll(Exer)
     }
 
 
@@ -41,20 +41,20 @@ class FoodListAdapter(var Food: ArrayList<FoodList>, var con: Context) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val con = parent.context
         val inflater = con.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        val view = inflater.inflate(R.layout.layout_foodrv, parent, false)
+        val view = inflater.inflate(R.layout.layout_exerrv, parent, false)
 
         return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val food: FoodList = filteredFoods[position]
+        val exer: ExerList = filteredExers[position]
         //[수정요함] 이미지 작업의 경우 glide를 사용해 server의 image를 불러올 것
         //holder.iv_person_phone_book_list_item
-        holder.f_name.text = "식품명 = "+"{ " + food.foodname + " 칼로리 = " + "{ " +food.foodcal
+        holder.e_name.text = "종목명 = "+"{ " + exer.exername + " 분당 칼로리소모 = " + "{ " +exer.exercal
     }
 
     override fun getItemCount(): Int {
-        return filteredFoods.size
+        return filteredExers.size
     }
 
     //-- filter
@@ -69,17 +69,17 @@ class FoodListAdapter(var Food: ArrayList<FoodList>, var con: Context) :
             Log.v(TAG, "charSequence : $charSequence")
 
             //검색이 필요없을 경우를 위해 원본 배열을 복제
-            val filteredList: ArrayList<FoodList> = ArrayList<FoodList>()
+            val filteredList: ArrayList<ExerList> = ArrayList<ExerList>()
             //공백제외 아무런 값이 없을 경우 -> 원본 배열
             if (filterString.trim { it <= ' ' }.isEmpty()) {
-                results.values = Food
-                results.count = Food.size
+                results.values = Exer
+                results.count = Exer.size
 
                 return results
                 //빈칸이 아닐경우 filter검색
             } else if (filterString.trim { it <= ' ' }.isNotEmpty()) {
-                for (fd in Food) {
-                    if (fd.foodname.contains(filterString)) {
+                for (fd in Exer) {
+                    if (fd.exername.contains(filterString)) {
                         filteredList.add(fd)
                     }
                 }
@@ -93,8 +93,8 @@ class FoodListAdapter(var Food: ArrayList<FoodList>, var con: Context) :
 
         @SuppressLint("NotifyDataSetChanged")
         override fun publishResults(charSequence: CharSequence?, filterResults: FilterResults) {
-            filteredFoods.clear()
-            filteredFoods.addAll(filterResults.values as ArrayList<FoodList>)
+            filteredExers.clear()
+            filteredExers.addAll(filterResults.values as ArrayList<ExerList>)
             notifyDataSetChanged()
         }
     }

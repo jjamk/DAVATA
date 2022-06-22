@@ -6,7 +6,6 @@ import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import com.example.please.databinding.ActivityCalendarBinding
-import com.example.please.databinding.ActivityMainBinding
 import kotlinx.android.synthetic.main.activity_calendar.*
 
 class CalendarActivity : AppCompatActivity() {

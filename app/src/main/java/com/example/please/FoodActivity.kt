@@ -2,6 +2,7 @@ package com.example.please
 
 import android.content.ContentValues.TAG
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -9,9 +10,12 @@ import android.widget.Filterable
 import android.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.please.databinding.ActivityExerciseBinding
+import com.example.please.databinding.ActivityFoodBinding
 import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.activity_food.*
 
 class FoodActivity : AppCompatActivity() {
     val TAG = "FoodActivity"
@@ -19,12 +23,14 @@ class FoodActivity : AppCompatActivity() {
     lateinit var rv_food_table: RecyclerView
     lateinit var foodlistadapter: FoodListAdapter
     lateinit var foods: ArrayList<FoodList>
+    private lateinit var binding: ActivityFoodBinding
 
     lateinit var f_searchview: SearchView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_food)
+        binding = ActivityFoodBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         rv_food_table = findViewById(R.id.f_listView)
         f_searchview = findViewById(R.id.f_searchView)
@@ -33,6 +39,30 @@ class FoodActivity : AppCompatActivity() {
 
         foods = tempFoods()
         setAdapter()
+        fb_insert.setOnClickListener{
+            result1.text="17:35 꿩불고기 368.8kcal"
+            result4.text="오늘 섭취한 칼로리는 368.8kcal입니다."
+        }
+        binding.btnHome.setOnClickListener{
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+        binding.btnCalendar.setOnClickListener{
+            val intent = Intent(this, CalendarActivity::class.java)
+            startActivity(intent)
+        }
+        binding.btnFood.setOnClickListener{
+            val intent = Intent(this, FoodActivity::class.java)
+            startActivity(intent)
+        }
+        binding.btnExercise.setOnClickListener{
+            val intent = Intent(this, ExerciseActivity::class.java)
+            startActivity(intent)
+        }
+        binding.btnSetting.setOnClickListener{
+            val intent = Intent(this, SettingActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     //SearchView 텍스트 입력시 이벤트
@@ -65,9 +95,10 @@ class FoodActivity : AppCompatActivity() {
 
     fun tempFoods(): ArrayList<FoodList> {
 
+        myRef.setValue("안녕 반가워!")
         var tf = ArrayList<FoodList>()
         for (i : Int in 0..7704){
-            myRef.setValue("안녕 반가워!")
+            myRef.setValue(i.toString())
             var foodref1 = foodref.child(i.toString())
             foodref1.addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
@@ -78,8 +109,7 @@ class FoodActivity : AppCompatActivity() {
                     for (ds in foodkal.children) {
                         Log.v("foodd", ds.toString())
                     }
-                    tf.add(FoodList(foodname.toString().substring(33),
-                        foodkal.toString().substring(36)))
+                    tf.add(FoodList(foodname.toString().substring(33),foodkal.toString().substring(36)))
 
 
                 }
