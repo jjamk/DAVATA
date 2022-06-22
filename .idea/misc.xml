@@ -10,22 +10,30 @@
         <entry key="app/src/main/res/drawable/search_background.xml" value="0.198" />
         <entry key="app/src/main/res/layout/activity_calendar.xml" value="0.19114583333333332" />
         <entry key="app/src/main/res/layout/activity_calendar2.xml" value="0.19114583333333332" />
+        <entry key="app/src/main/res/layout/activity_exercise.xml" value="0.19114583333333332" />
         <entry key="app/src/main/res/layout/activity_food.xml" value="0.19114583333333332" />
-        <entry key="app/src/main/res/layout/activity_intro.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_intro.xml" value="0.21990966796875003" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.19114583333333332" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.18009118541033434" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.24183044433593748" />
         <entry key="app/src/main/res/layout/activity_resister.xml" value="0.18009118541033434" />
+        <entry key="app/src/main/res/layout/activity_setting.xml" value="0.2453125" />
         <entry key="app/src/main/res/layout/activity_target.xml" value="0.18009118541033434" />
         <entry key="app/src/main/res/layout/fragment_calendar.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.17300724637681159" />
         <entry key="app/src/main/res/layout/fragment_exercise.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_food.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_food.xml" value="0.17935791015625" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.18731384277343754" />
         <entry key="app/src/main/res/layout/fragment_notifications.xml" value="0.18009118541033434" />
         <entry key="app/src/main/res/layout/fragment_setting.xml" value="0.23555297851562504" />
+        <entry key="app/src/main/res/layout/fragment_setting1.xml" value="0.17300724637681159" />
         <entry key="app/src/main/res/layout/item_target.xml" value="0.18009118541033434" />
+        <entry key="app/src/main/res/layout/layout_foodrv.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/list_item_day.xml" value="0.18009118541033434" />
         <entry key="app/src/main/res/layout/list_item_month.xml" value="0.19114583333333332" />
+        <entry key="app/src/main/res/layout/list_item_target.xml" value="0.14764492753623187" />
+        <entry key="app/src/main/res/layout/search_bar.xml" value="0.1" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.19114583333333332" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.423" />
       </map>
     </option>
   </component>

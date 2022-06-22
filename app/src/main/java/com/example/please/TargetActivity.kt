@@ -7,11 +7,14 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.please.databinding.ActivityTargetBinding
+import kotlinx.android.synthetic.main.list_item_target.view.*
 
 class TargetActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityTargetBinding
     private val todos = arrayListOf<Todo>()
+
+    //private val binding2 get() = _binding2!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,6 +46,7 @@ class TargetActivity : AppCompatActivity() {
         //UI 업데이트
         binding.todoList.adapter?.notifyDataSetChanged()
     }
+
     fun deleteTask(todo:Todo){
         todos.remove(todo)
         binding.todoList.adapter?.notifyDataSetChanged()

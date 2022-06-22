@@ -44,10 +44,12 @@ class ResisterActivity : AppCompatActivity() {
                 val sex=binding.edtSex.text.toString()
                 val weight=binding.edtWeight.text.toString()
                 val height=binding.edtHeight.text.toString()
+                val age=binding.edtAge.text.toString()
                 val myRef: DatabaseReference=database.getReference(name)
                 myRef.child("성별").setValue(sex)
                 myRef.child("키").setValue(height)
                 myRef.child("체중").setValue(weight)
+                myRef.child("나이").setValue(age)
 
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)

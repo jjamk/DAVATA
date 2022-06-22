@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">please</string>
+    <string name="app_name">DAVATA</string>
     <string name="title_home">Home</string>
     <string name="title_setting">Setting</string>
     <string name="title_calendar">Calendar</string>
@@ -15,4 +15,6 @@
     <string name="Fri">금</string>
     <string name="Sat">토</string>
     <string name="_9">9</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

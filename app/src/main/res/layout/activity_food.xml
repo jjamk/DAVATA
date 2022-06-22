@@ -27,6 +27,7 @@
         <ListView
             android:id="@+id/f_listView"
             android:layout_width="match_parent"
+            android:background="@drawable/search_background2"
             android:layout_height="66dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp" />
@@ -54,18 +55,18 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="60dp"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="100dp"
                 android:layout_height="85dp"
-                android:text="시간 설정 : "
-                android:textSize="20dp"
-                android:gravity="center"
+                android:layout_gravity="center"
                 android:layout_marginStart="40dp"
+                android:gravity="center"
+                android:text="시간 설정 : "
                 android:textColor="@color/black"
-                android:layout_gravity="center"/>
+                android:textSize="20dp" />
 
             <TimePicker
                 android:id="@+id/f_timePicker"
@@ -89,7 +90,7 @@
             <Button
                 android:id="@+id/fb_insert"
                 android:layout_width="70dp"
-                android:layout_height="77dp"
+                android:layout_height="50dp"
                 android:layout_weight="1"
                 android:onClick="mOnInsertClick"
                 android:text="Insert" />
@@ -97,15 +98,78 @@
 
         <ListView
             android:layout_width="match_parent"
-            android:background="@drawable/search_background2"
-            android:layout_height="194dp" />
+            android:layout_height="150dp"
+            android:background="@drawable/search_background2" />
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/txtres"
             android:layout_width="match_parent"
             android:layout_marginTop="10dp"
             android:background="@drawable/search_background2"
             android:layout_height="47dp"
-            android:text="textview" />
+            android:text="TextView" />
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/navi_food"
+                android:layout_width="0dp"
+                android:layout_height="70dp"
+                android:src="@drawable/navi_food"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent" />
+            <Button
+                android:id="@+id/btn_home"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btn_calendar"
+                android:background="@android:color/transparent" />
+
+            <Button
+                android:id="@+id/btn_exercise"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="80dp"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btn_calendar"
+                app:layout_constraintStart_toEndOf="@+id/btn_food"
+                android:background="@android:color/transparent"/>
+
+            <Button
+                android:id="@+id/btn_calendar"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btn_setting"
+                android:background="@android:color/transparent"/>
+
+            <Button
+                android:id="@+id/btn_setting"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:visibility="visible"
+                android:background="@android:color/transparent"/>
+
+            <Button
+                android:id="@+id/btn_food"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:background="@android:color/transparent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
+
 </layout>

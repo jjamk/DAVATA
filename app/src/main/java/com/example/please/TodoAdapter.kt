@@ -14,6 +14,7 @@ data class Todo (
     val title: String,
     var completed: Boolean=false,
 )
+
 class TodoAdapter(private val todos:List<Todo>,
                   val onClickDeleteIcon: (todo:Todo)->Unit):
     RecyclerView.Adapter<TodoAdapter.TodoViewHolder>() {

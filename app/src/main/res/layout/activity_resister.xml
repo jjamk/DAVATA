@@ -39,6 +39,11 @@
             android:layout_height="wrap_content"
             android:hint="성별" />
         <EditText
+            android:id="@+id/edt_age"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="나이" />
+        <EditText
             android:id="@+id/edt_height"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -48,7 +53,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="체중" />
-
         <Button
             android:id="@+id/btn_sign_in"
             android:layout_width="match_parent"

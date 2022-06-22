@@ -10,20 +10,19 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.bumptech.glide.Glide
 import com.example.please.databinding.ActivityMainBinding
+import com.example.please.databinding.ActivitySettingBinding
 
-class MainActivity : AppCompatActivity() {
+class SettingActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivitySettingBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivitySettingBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        Glide.with(this).load(R.raw.female1).into(binding.avatar)
-
-        binding.imageButton.setOnClickListener{
-            val intent = Intent(this, TargetActivity::class.java)
+        binding.btnHome.setOnClickListener{
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
         binding.btnCalendar.setOnClickListener{
@@ -40,10 +39,6 @@ class MainActivity : AppCompatActivity() {
         }
         binding.btnSetting.setOnClickListener{
             val intent = Intent(this, SettingActivity::class.java)
-            startActivity(intent)
-        }
-        binding.btnHome.setOnClickListener{
-            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
     }
