@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="60dp"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:background="@drawable/search_background2">
 
     <TextView
         android:id="@+id/f_name"
@@ -13,7 +14,7 @@
         android:gravity="center"
         android:text="임시텍스트"
         android:textColor="@color/black"
-        android:textSize="22dp"
+        android:textSize="13dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -22,20 +23,21 @@
         android:id="@+id/choice"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:textSize="20dp"
+        android:textSize="15dp"
         android:gravity="center"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:layout_marginEnd="10dp"
-        android:background="@color/white"
-        android:foregroundTint="#F6F4F4"
         android:onClick="foodchoice"
-        android:text="btn"
-        android:textColor="@color/black"
+        android:text="선택"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:strokeColor="#FBF9F9" />
-
+        android:textColor="#B0B0B0"
+        android:background="@drawable/buttonshape"
+        android:shadowColor="#000000"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

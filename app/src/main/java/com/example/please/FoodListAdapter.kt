@@ -1,6 +1,7 @@
 package com.example.please
 
 import android.annotation.SuppressLint
+import android.content.ContentValues.TAG
 import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
@@ -50,7 +51,7 @@ class FoodListAdapter(var Food: ArrayList<FoodList>, var con: Context) :
         val food: FoodList = filteredFoods[position]
         //[수정요함] 이미지 작업의 경우 glide를 사용해 server의 image를 불러올 것
         //holder.iv_person_phone_book_list_item
-        holder.f_name.text = food.foodname
+        holder.f_name.text = "식품명 = "+"{ " + food.foodname + " 칼로리 = " + "{ " +food.foodcal
     }
 
     override fun getItemCount(): Int {
