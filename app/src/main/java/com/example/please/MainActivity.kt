@@ -1,6 +1,7 @@
 package com.example.please
 
 import android.content.Intent
+import android.graphics.Bitmap
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
@@ -20,7 +21,21 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        Glide.with(this).load(R.raw.female1).into(binding.avatar)
+        var w=intent.getDoubleExtra("weight",0.0)
+        var h=intent.getDoubleExtra("height",0.0)
+
+        if (w/(h*h) <= 18.5) {
+            Glide.with(this).load(R.raw.female1).into(binding.avatar)
+        }
+        if (w/(h*h) > 18.5 && w/(h*h) <= 22.9) {
+            Glide.with(this).load(R.raw.female2).into(binding.avatar)
+        }
+        if (w/(h*h) >= 23.0 && w/(h*h) <= 24.9) {
+            Glide.with(this).load(R.raw.female3).into(binding.avatar)
+        }
+        if (w/(h*h) >= 25.0 ) {
+            Glide.with(this).load(R.raw.female4).into(binding.avatar)
+        }
 
         binding.imageButton.setOnClickListener{
             val intent = Intent(this, TargetActivity::class.java)

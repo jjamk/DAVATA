@@ -1,6 +1,8 @@
 package com.example.please
 
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -28,6 +30,8 @@ class ResisterActivity : AppCompatActivity() {
             val password = binding.edtPassword.text.toString().trim()
 
             createUser(id,password)
+
+
         }
     }
 
@@ -51,8 +55,9 @@ class ResisterActivity : AppCompatActivity() {
                 myRef.child("체중").setValue(weight)
                 myRef.child("나이").setValue(age)
 
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
+                bmi(weight,height)
+                //val intent = Intent(this, MainActivity::class.java)
+                //startActivity(intent)
             }
             else{
                 Toast.makeText(this, "회원가입 실패",
@@ -63,6 +68,16 @@ class ResisterActivity : AppCompatActivity() {
                 Toast.makeText(this, "회원가입 실패",
                 Toast.LENGTH_SHORT).show()
             }
+    }
+
+    private fun bmi(weight: String, height:String)
+    {
+        val intent : Intent = Intent(this, MainActivity::class.java)
+        val w=weight.toDouble()
+        var h=height.toDouble() * 0.01
+        intent.putExtra("weight", w)
+        intent.putExtra("height", h)
+        startActivity(intent)
     }
     override fun onDestroy() {
         super.onDestroy()

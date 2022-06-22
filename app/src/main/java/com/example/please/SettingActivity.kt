@@ -21,6 +21,10 @@ class SettingActivity : AppCompatActivity() {
         binding = ActivitySettingBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.button1.setOnClickListener {
+            val intent = Intent(this, SettingActivity2::class.java)
+            startActivity(intent)
+        }
         binding.btnHome.setOnClickListener{
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)

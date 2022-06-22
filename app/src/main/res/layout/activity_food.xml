@@ -14,7 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="16dp"
             android:background="@drawable/search_background1"
             android:iconifiedByDefault="false"
@@ -24,49 +24,52 @@
         </SearchView>
 
 
-        <ListView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/f_listView"
             android:layout_width="match_parent"
+            android:layout_height="130dp"
             android:background="@drawable/search_background2"
-            android:layout_height="66dp"
+            tools:listitem="@layout/layout_foodrv"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp" />
+        <!--
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="51dp"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/f_insert"
+                        android:layout_width="339dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:hint="음식"
+                        android:inputType="textPersonName"
+                        android:minHeight="48dp"
+                        android:textAlignment="center"
+                        android:textColorHint="#757575" />
+
+
+                </LinearLayout>
+        -->
+
 
         <LinearLayout
+            android:background="@drawable/search_background2"
             android:layout_width="match_parent"
-            android:layout_height="51dp"
-            android:orientation="horizontal">
-
-            <EditText
-                android:id="@+id/f_insert"
-                android:layout_width="339dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:ems="10"
-                android:hint="음식"
-                android:inputType="textPersonName"
-                android:minHeight="48dp"
-                android:textAlignment="center"
-                android:textColorHint="#757575" />
-
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="100dp"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="100dp"
                 android:layout_height="85dp"
-                android:layout_gravity="center"
-                android:layout_marginStart="40dp"
-                android:gravity="center"
                 android:text="시간 설정 : "
+                android:textSize="20dp"
+                android:gravity="center"
+                android:layout_marginStart="40dp"
                 android:textColor="@color/black"
-                android:textSize="20dp" />
+                android:layout_gravity="center"/>
 
             <TimePicker
                 android:id="@+id/f_timePicker"
@@ -90,24 +93,25 @@
             <Button
                 android:id="@+id/fb_insert"
                 android:layout_width="70dp"
-                android:layout_height="50dp"
+                android:layout_height="77dp"
                 android:layout_weight="1"
                 android:onClick="mOnInsertClick"
                 android:text="Insert" />
         </LinearLayout>
 
-        <ListView
+        <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="110dp"
             android:background="@drawable/search_background2" />
+
         <TextView
-            android:id="@+id/txtres"
+            android:id="@+id/textView2"
             android:layout_width="match_parent"
+            android:layout_height="47dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/search_background2"
-            android:layout_height="47dp"
-            android:text="TextView" />
-
+            android:text="textview"
+            android:textAlignment="center" />
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -120,56 +124,55 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent" />
-            <Button
-                android:id="@+id/btn_home"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:visibility="visible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/btn_calendar"
-                android:background="@android:color/transparent" />
 
             <Button
-                android:id="@+id/btn_exercise"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="80dp"
-                android:visibility="visible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/btn_calendar"
-                app:layout_constraintStart_toEndOf="@+id/btn_food"
-                android:background="@android:color/transparent"/>
+            android:id="@+id/btn_home"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btn_calendar"
+            android:background="@android:color/transparent" />
 
-            <Button
-                android:id="@+id/btn_calendar"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:visibility="visible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/btn_setting"
-                android:background="@android:color/transparent"/>
+        <Button
+            android:id="@+id/btn_exercise"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="80dp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btn_calendar"
+            app:layout_constraintStart_toEndOf="@+id/btn_food"
+            android:background="@android:color/transparent"/>
 
-            <Button
-                android:id="@+id/btn_setting"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:visibility="visible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                tools:visibility="visible"
-                android:background="@android:color/transparent"/>
+        <Button
+            android:id="@+id/btn_calendar"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btn_setting"
+            android:background="@android:color/transparent"/>
 
-            <Button
-                android:id="@+id/btn_food"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:visibility="visible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                android:background="@android:color/transparent"/>
+        <Button
+            android:id="@+id/btn_setting"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:visibility="visible"
+            android:background="@android:color/transparent"/>
 
+        <Button
+            android:id="@+id/btn_food"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:background="@android:color/transparent"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
-
 </layout>
